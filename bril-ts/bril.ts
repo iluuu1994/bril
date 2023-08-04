@@ -30,7 +30,7 @@ export type Position = {row: number, col: number};
 /**
  * Common fields in any operation.
  */
-interface Op {
+export interface Op {
   args?: Ident[];
   funcs?: Ident[];
   labels?: Ident[];

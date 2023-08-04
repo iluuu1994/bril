@@ -1,0 +1,12 @@
+@main {
+  jmp one;
+.two:
+  print a;
+  jmp three;
+.one:
+  a: int = const 1;
+  b: int = const 2;
+.three:
+  # FIXME: Empty blocks are removed, even if they are a jump target.
+  ret;
+}
