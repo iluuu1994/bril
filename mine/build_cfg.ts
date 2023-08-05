@@ -55,7 +55,7 @@ export function build_cfg(f: Function): Cfg {
         }
 
         function end_block() {
-            if (instrs.length > 0) {
+            if (instrs.length > 0 || label) {
                 const name = label?.label ?? generate_label('unnamed', block_map);
                 const block = { name, label, instrs };
                 blocks.push(block);
@@ -83,6 +83,9 @@ export function build_cfg(f: Function): Cfg {
         for (let i = 0; i < blocks.length; i++) {
             const block = blocks[i];
             const last_instr = block.instrs[block.instrs.length - 1];
+            if (!last_instr) {
+                continue;
+            }
             if (is_terminator(last_instr)) {
                 if (last_instr.op === "jmp" || last_instr.op === "br") {
                     edges.set(block.name, last_instr.labels!);

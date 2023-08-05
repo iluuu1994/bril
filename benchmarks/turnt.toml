@@ -39,3 +39,7 @@ hyperfine --warmup 3 --export-json bench.json \
 rm -f {base}.json
 rm {base}"""
 output."bench.json" = "../bench.json"
+
+[envs.mine]
+command = "bril2json < {filename} | deno run ../mine/dce.ts | brili -p {args}"
+output.out = "-"
