@@ -1,4 +1,4 @@
-import { Function, Label, Instruction, Ident, Op, ValueOperation, Constant, EffectOperation } from "../bril-ts/bril.ts";
+import { Function, Label, Instruction, Ident, Op, ValueOperation, Constant, EffectOperation, CallOperation } from "../bril-ts/bril.ts";
 
 type Block = {
     name: Ident;
@@ -23,12 +23,12 @@ export function is_terminator(value: Label|Instruction): value is Instruction {
     return is_instruction(value) && (value.op === "jmp" || value.op === "br" || value.op === "ret");
 }
 
-export function has_dest(value: unknown): value is ValueOperation|Constant {
+export function has_dest(value: unknown): value is ValueOperation|Constant|CallOperation {
     return typeof value === 'object' && !Array.isArray(value) && value !== null && 'dest' in value;
 }
 
 export function has_side_effect(value: unknown): value is EffectOperation {
-    return !has_dest(value);
+    return !has_dest(value) || value.op === 'call';
 }
 
 export function is_op(value: unknown): value is Op {

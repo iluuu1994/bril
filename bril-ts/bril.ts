@@ -41,7 +41,7 @@ export interface Op {
  * An instruction that does not produce any result.
  */
 export interface EffectOperation extends Op {
-  op: "br" | "jmp" | "print" | "ret" | "call" |
+  op: "br" | "jmp" | "print" | "ret" |
     "store" | "free" |
     "speculate" | "guard" | "commit";
 }
@@ -63,6 +63,11 @@ export interface ValueOperation extends Op {
       "phi";
   dest: Ident;
   type: Type;
+}
+
+export interface CallOperation extends Op {
+  op: "call";
+  dest: Ident;
 }
 
 /**

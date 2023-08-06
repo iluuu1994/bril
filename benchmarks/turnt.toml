@@ -41,5 +41,5 @@ rm {base}"""
 output."bench.json" = "../bench.json"
 
 [envs.mine]
-command = "bril2json < {filename} | deno run ../mine/dce.ts | brili -p {args}"
+command = "bril2json < {filename} | deno run ../mine/optimizer.ts | brili -p {args}"
 output.out = "-"
