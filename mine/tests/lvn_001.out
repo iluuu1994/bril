@@ -1,6 +1,5 @@
 @main {
-  a: int = const 1;
-  c: int = add a a;
+  c: int = const 2;
   print c;
   print c;
 }
