@@ -1,12 +1,12 @@
 import { Function, Label, Instruction, Ident, Op, ValueOperation, Constant, EffectOperation, CallOperation } from "../bril-ts/bril.ts";
 
-type Block = {
+export type Block = {
     name: Ident;
     label: Label|undefined;
     instrs: Instruction[];
 }
 
-interface Cfg {
+export interface Cfg {
     blocks: Block[];
     edges: Map<Ident, Ident[]>;
 }
