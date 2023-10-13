@@ -1,0 +1,13 @@
+@main {
+  a: int = const 1;
+  b: int = const 2;
+  c: int = add a b;
+  print c;
+  b: int = call magic_num;
+  c: int = add a b;
+  print c;
+}
+@magic_num {
+  x: int = const 42;
+  ret x;
+}

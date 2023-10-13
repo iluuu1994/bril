@@ -1,0 +1,11 @@
+@main {
+  a: int = const 1;
+  b: int = call a;
+  b: int = call a;
+  c: int = const 1;
+  c: int = call a;
+}
+@print(x: int) {
+  print a;
+  ret a;
+}

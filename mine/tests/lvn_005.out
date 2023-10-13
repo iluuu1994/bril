@@ -1,0 +1,5 @@
+@main(a: int, b: int) {
+  c: int = add a b;
+  print c;
+  print c;
+}

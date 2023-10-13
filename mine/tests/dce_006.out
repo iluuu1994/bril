@@ -1,0 +1,10 @@
+@main {
+  jmp one;
+.two:
+  print a;
+  jmp three;
+.one:
+  a: int = const 1;
+.three:
+  ret;
+}
